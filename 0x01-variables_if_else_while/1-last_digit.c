@@ -1,20 +1,30 @@
+#include <stdlib.h>
 #include <time.h>
 
+/* betty style doc for function main goes there */
 int main(void)
 {
-  int n;
+    int n;
+  
+    srand(time(0));
+    n = rand() - RAND_MAX / 2;
 
-  srand(time(0));
-  n = rand() - RAND_MAX / 2;
+    int lastDigit = abs(n) % 10;
 
-  /* Get the last digit of n */
-  int last_digit = n % 10;
+    printf("Last digit of %d is ", n);
 
-  /* Print the last digit and the appropriate message */
-  printf("Last digit of %d is %d%s\n", n, last_digit,
-         (last_digit > 5) ? " and is greater than 5" :
-         (last_digit == 0) ? " and is 0" :
-         " and is less than 6 and not 0");
+    if (lastDigit > 5)
+    {
+        printf("and is greater than 5\n");
+    }
+    else if (lastDigit == 0)
+    {
+        printf("and is 0\n");
+    }
+    else
+    {
+        printf("and is less than 6 and not 0\n");
+    }
 
-  return 0;
+    return (0);
 }
